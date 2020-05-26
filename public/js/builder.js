@@ -15,12 +15,12 @@ function build(value) {
                     var harvest = grid.hexesInRange(element, 1, false);
 
                     harvest.forEach(hex => {
-                        if (hex.hasRss) {
+
                             hex.metal ? count=count+hex.metal : count+0;
                             hex.gas ? count=count+hex.gas : count+0;
                             hex.crystal ? count=count+hex.crystal : count+0;
                             hex.labor ? count=count+hex.labor : count+0;
-                        }
+                        
                     })
                     if (count > highscore) {
                         highscore = count;
@@ -30,9 +30,9 @@ function build(value) {
                 }
             })
 
-            candidate.drawRssColor('yellow');
             candidate.building = 'mf';
             candidate.yield = highscore;
+            candidate.drawHex();
 
         }
             break;

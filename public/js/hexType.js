@@ -42,8 +42,8 @@ function leftClick(offsetX, offsetY){
                     hex.hasRss = true;
                 }
                 hex.metal++;
-                hex.drawRssColor('grey');
-                hex.drawNumbers();
+                hex.drawHex('grey');
+                //hex.drawNumbers();
             }
                 break;
             case 'gas': {
@@ -52,7 +52,7 @@ function leftClick(offsetX, offsetY){
                     hex.hasRss = true;
                 }
                 hex.gas++;
-                hex.drawRssColor('blue');
+                hex.drawHex('blue');
             }
                 break;
             case 'crystal': {
@@ -61,7 +61,7 @@ function leftClick(offsetX, offsetY){
                     hex.hasRss = true;
                 }
                 hex.crystal++;
-                hex.drawRssColor('green');
+                hex.drawHex('green');
             }
                 break;
             case 'labor': {
@@ -70,25 +70,20 @@ function leftClick(offsetX, offsetY){
                     hex.hasRss = true;
                 }
                 hex.labor++;
-                hex.drawRssColor('red');
+                hex.drawHex('red');
             }
                 break;
             case 'station': {
                 if (!hex.station) {
                     hex.station = true;
-                    hex.metal = 0;
-                    hex.gas = 0;
-                    hex.crystal = 0;
-                    hex.labor = 0;
                 }
-                hex.station = true;
-                hex.drawRssColor('black')
+                hex.building = 'station';
+                hex.drawHex('black')
                 var hexes = grid.hexesInRange(hex, 4, true);
                 hexes.forEach(element => {
                     element.claimed = true
-                    if (!element.metal && !element.gas && !element.crystal && !element.labor && !element.station && !element.yield) {
-                        element.drawClaim()
-                    }
+                        element.drawHex()
+                    
                 })
             }
                 break;
