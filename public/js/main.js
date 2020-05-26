@@ -70,14 +70,22 @@ const Hex = Honeycomb.extendHex({
         returnObject.building = this.building;
         returnObject.yield = this.yield;
         
-        
-        return returnObject;
-        
+        return returnObject;        
     }
 
-
-
 })
+
+function increaseRange(){
+    var range=document.getElementById("range").innerHTML;
+    range++;
+    document.getElementById("range").innerHTML = range;
+}
+
+function decreaseRange(){
+    var range=document.getElementById("range").innerHTML;
+    document.getElementById("range").innerHTML = range-1;
+}
+
 
 const Grid = Honeycomb.defineGrid(Hex)
 
